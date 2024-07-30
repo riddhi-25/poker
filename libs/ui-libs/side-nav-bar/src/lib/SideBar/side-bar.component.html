@@ -1,0 +1,35 @@
+<div class="h-screen flex flex-col bg-slate-100 text-gray-800">
+
+  <div class=" bg-slate-50 cursor-pointer flex items-center justify-center pt-4 pb-2 border-b mb-8">
+      <img class="h-6 w-6" src="https://www.reetro.app/static/media/logo.579d7bfe57982b3006d143c83a5323f1.svg" alt="Logo">
+  </div>
+  
+
+  <div class="flex-grow flex flex-col">
+      <ul class="space-y-4">
+          <li *ngFor="let item of items" class="relative group" (mouseenter)="onMouseEnter(item.name)" (mouseleave)="onMouseLeave()">
+              <a class="cursor-pointer flex items-center justify-center p-4 transition-colors duration-300 ease-in-out rounded-full " (click)="navigateMe(item.icon)">
+                  <mat-icon class="text-gray-600 group-hover:text-indigo-900 transition-colors duration-300 ease-in-out">{{ item.icon }}</mat-icon>
+                
+              </a>
+            <div *ngIf="hoverItem === item.name" class="absolute top-2 left-14 bg-indigo-900 text-white p-2 rounded-md">
+                {{ item.name }}
+            </div>
+          </li>
+      </ul>
+  </div>
+
+  
+  <div class="mb-4">
+      <ul>
+          <li *ngFor="let item of signout" class="relative group" (mouseenter)="onMouseEnter(item.name)" (mouseleave)="onMouseLeave()">
+              <a class="cursor-pointer flex items-center justify-center p-4 transition-colors duration-300 ease-in-out rounded-full" (click)="logoutUser()">
+                  <mat-icon class="text-gray-600 group-hover:text-indigo-900 transition-colors duration-300 ease-in-out">logout</mat-icon>
+              </a>
+              <div *ngIf="hoverItem === item.name" class="absolute top-2 left-14 bg-indigo-900 text-white p-2 rounded-md">
+                  {{ item.name }}
+              </div>
+          </li>
+      </ul>
+  </div>
+</div>

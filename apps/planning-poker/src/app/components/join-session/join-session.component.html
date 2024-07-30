@@ -1,0 +1,38 @@
+<form
+  class="flex flex-col max-w-lg mx-auto mt-20"
+  [formGroup]="joinSessionForm"
+>
+  <h2 class="text-center font-bold text-4xl text-blue-dark">Join a session!</h2>
+  <input
+    placeholder="session's id"
+    type="text"
+    formControlName="inputSessionId"
+    class="p-3 m-5 rounded ring-2 text-zinc-500 ring-zinc-200 hover:ring-zinc-400 focus:outline-none focus:ring-blue-light placeholder:text-zinc-400"
+  />
+ 
+  <div
+    class="mx-auto flex max-w-xs p-3 m-5 rounded ring-2 text-zinc-500 ring-zinc-200 hover:ring-zinc-400 focus:outline-none focus:ring-blue-light placeholder:text-zinc-400"
+  >
+    <label>your role:</label>
+    <select
+      name="select role"
+      formControlName="userRole"
+      class="outline-none"
+    >
+      <option
+        *ngFor="let role of roleList"
+        [value]="role"
+      >
+        {{ role }}
+      </option>
+    </select>
+  </div>
+
+  <planning-poker-app-button
+    [label]="'Join session'"
+    [type]="'primary'"
+    [display]="'block'"
+    class="m-5"
+    (click)="joinSession($event)"
+  ></planning-poker-app-button>
+</form>

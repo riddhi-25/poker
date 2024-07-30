@@ -1,0 +1,15 @@
+.primary {
+  @apply text-2xl font-normal py-1 bg-blue-500 rounded px-4 text-white hover:bg-blue-300;
+}
+
+.secondary {
+  @apply bg-white text-2xl py-1 font-normal px-4 outline outline-blue-500 outline-1 rounded hover:bg-blue-50 text-blue-500;
+}
+
+.display-block {
+  @apply block w-full;
+}
+
+.display-inline {
+  @apply inline ;
+}

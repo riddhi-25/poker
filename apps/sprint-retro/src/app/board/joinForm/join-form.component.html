@@ -1,0 +1,29 @@
+<div class="  bg-slate-500"  >
+    <form class="flex flex-col w-full" [formGroup]="joinUser" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="sessionId">SessionId</label>
+            <input  type="text" id="sessionId" formControlName="sessionId">
+        </div>
+        <div>
+
+            <label for="userName">Username</label>
+            <input type="text" id="userName" placeholder="Enter your Username" formControlName="userName">
+        </div>
+        <div>
+
+            <label for="role">Role</label>
+            <select name="role" id="role" formControlName="role">
+                <option value="Developer">
+                    Developer
+                </option>
+                <option value="Lead">
+                    Lead
+                </option>
+                <option value="Guest">
+                    Guest
+                </option>
+            </select>
+        </div>
+        <button type="submit" >Join Session</button>
+    </form>
+</div>

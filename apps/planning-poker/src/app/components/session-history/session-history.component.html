@@ -1,0 +1,49 @@
+<planning-poker-app-header></planning-poker-app-header>
+<div class="p-2">
+  <h2 class="text-2xl font-bold mb-4 p-4">Session History</h2>
+  
+  <div class="flex flex-wrap">
+    <div *ngFor="let session of sessions | keyvalue" class="p-5 xl:w-1/3 lg:w-1/2 md:w-full">
+      <div class="border hover:shadow-xl hover:shadow-blue-500 rounded-lg p-4">
+        <h3 class="text-lg font-bold">{{ session.value.name }}</h3>
+        <p class="text-sm">ID: {{ session.key }}</p>
+        <p>Status: <strong>{{ session.value.status }}</strong></p>
+        <div class="mt-4 flex justify-between">
+          <planning-poker-app-button [label]="'Show Details'" [type]="'secondary'" (click)="toggleDetails(session.key)" class="mr-1"></planning-poker-app-button>
+          <planning-poker-app-button [label]="'View Session'" [type]="'primary'"(click)="viewSession(session.key)" class="ml-1"></planning-poker-app-button>
+        </div>
+        <div *ngIf="selectedId===session.key" class="mt-4">
+          <p>Description: {{ session.value.description }}</p>
+          <p>
+            Created On
+            {{ session.value.createdOn | date: 'medium' }}
+          </p>
+          <p>
+            Last Updated On:
+            {{ session.value.lastUpdatedOn | date: 'medium' }}
+          </p>
+          
+          <div>
+            <h4 class="text-sm mt-2">Participants</h4>
+            <ul>
+              <li
+                *ngFor="let participant of session.value.participants | keyvalue"
+              >
+                {{ participant.value.name }} ({{ participant.value.role }})
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-sm mt-2">Stories</h4>
+            <ul>
+              <li *ngFor="let story of session.value.stories | keyvalue">
+                {{ story.value.title }}:
+                {{ story.value.description }} - {{ story.value.status }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

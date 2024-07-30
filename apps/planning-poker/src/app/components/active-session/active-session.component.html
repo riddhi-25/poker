@@ -1,0 +1,51 @@
+<div class="flex flex-col min-h-screen">
+  <planning-poker-app-header
+    (togglePanel)="panelVisible = !panelVisible"
+  ></planning-poker-app-header>
+  <planning-poker-app-sub-header></planning-poker-app-sub-header>
+  <div class="relative">
+    <planning-poker-app-timer class="absolute p-10"
+    (timerFinish)="handleTimerEvent($event)"></planning-poker-app-timer>
+  </div>
+
+  <!-- <div class="bg-blue-100 mx-auto mt-10 p-5 max-w-lg rounded-md h-auto shadow-xl">
+    <planning-poker-app-button
+      [label]="buttonVote"
+      [type]="'primary'"
+      (click)="reveal()"
+    ></planning-poker-app-button>
+    <div class="mt-10 flex flex-row">
+      <div *ngFor="let participant of userList" class="m-2">
+        <planning-poker-app-vote-card
+        [inputNum]="activeStory?.votes?.[participant.name]?? 0"
+        [state]="storyState"
+        ></planning-poker-app-vote-card>
+        {{ participant.name.split(' ')[0] }}
+      </div>
+    </div>
+  </div> -->
+
+  <div class="bg-blue-100 mx-auto mt-10 p-5 max-w-lg rounded-md h-auto shadow-xl">
+    <div class="flex justify-center">
+      <planning-poker-app-button
+        [label]="buttonVote"
+        [type]="'primary'"
+        (click)="reveal()"
+      ></planning-poker-app-button>
+    </div>
+    <div class="mt-5 grid grid-cols-3 gap-4 justify-center">
+      <div *ngFor="let participant of userList" class="p-2 rounded-md shadow-md bg-white ">
+        <planning-poker-app-vote-card
+          [inputNum]="activeStory?.votes?.[participant.name]?? 0"
+          [state]="storyState"
+        ></planning-poker-app-vote-card>
+        <p class="text-lg font-bold">{{ participant.name.split(' ')[0] }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-auto flex justify-center" *ngIf="timerState === 'started'"
+  >
+    <planning-poker-app-votes (sendState)="changeState($event)"></planning-poker-app-votes>
+  </div>
+</div>

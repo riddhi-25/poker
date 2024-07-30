@@ -1,0 +1,97 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .nav-items {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-items a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .nav-items a:hover {
+    background-color: #555;
+    color: #1e90ff;
+  }
+  
+  .username {
+    font-weight: bold;
+  }
+  
+  .tile-container .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  
+  .tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    height: 250px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    border: 2px solid #ccc;
+  }
+  
+  .tile.new-board {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+  }
+  
+  .plus-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .tile-text {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .tile-content {
+    text-align: left;
+  }
+  
+  .tile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .tile-header h3 {
+    margin: 0;
+  }
+  
+  .tile-options button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .tile-options button:hover {
+    color: red;
+  }
+  

@@ -1,0 +1,65 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@planning-poker-app/environments": ["libs/environments/src/index.ts"],
+      "@planning-poker-app/frontend-lib/services": [
+        "libs/frontend-lib/services/src/index.ts"
+      ],
+      "@planning-poker-app/planning-poker-auth": [
+        "libs/planning-poker-auth/src/index.ts"
+      ],
+      "@planning-poker-app/planning-poker-lib": [
+        "libs/planning-poker-lib/src/index.ts"
+      ],
+      "@planning-poker-app/sprint-retro-auth": [
+        "libs/sprint-retro-auth/src/index.ts"
+      ],
+      "@planning-poker-app/sprint-retro-lib": [
+        "libs/sprint-retro-lib/src/index.ts"
+      ],
+      "@planning-poker-app/swimlane-section/swimlane-section": [
+        "libs/swimlane-section/swimlane-section/src/index.ts"
+      ],
+      "@planning-poker-app/types": ["libs/types/src/index.ts"],
+      "@planning-poker-app/ui-libs/button": [
+        "libs/ui-libs/button/src/index.ts"
+      ],
+      "@planning-poker-app/ui-libs/cards/issue-card": [
+        "libs/ui-libs/cards/issue-card/src/index.ts"
+      ],
+      "@planning-poker-app/ui-libs/cards/retro-card": [
+        "libs/ui-libs/cards/retro-card/src/index.ts"
+      ],
+      "@planning-poker-app/ui-libs/cards/vote-card": [
+        "libs/ui-libs/cards/vote-card/src/index.ts"
+      ],
+      "@planning-poker-app/ui-libs/side-nav-bar": [
+        "libs/ui-libs/side-nav-bar/src/lib/SideBar/side-bar.component"
+      ],
+      "@planning-poker-app/ui-libs/side-panel": [
+        "libs/ui-libs/side-panel/src/index.ts"
+      ],
+      "@planning-poker-app/ui-libs/swimlane-section/swimlane": [
+        "libs/ui-libs/swimlane-section/swimlane/src/index.ts"
+      ],
+      "@planning-poker-app/ui-libs/swimlanes-section": [
+        "libs/ui-libs/swimlanes-section/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

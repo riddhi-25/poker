@@ -1,0 +1,67 @@
+<planning-poker-app-side-panel *ngIf="isVisible">
+  <div
+    side-panel-header
+    class="flex flex-row justify-between items-center"
+  >
+    <div class="text-lg font-semibold">Issues</div>
+    <div>
+      <button
+        (click)="togglePanel()"
+        class="hover:text-red-500"
+      >
+        &times;
+      </button>
+    </div>
+  </div>
+  <div
+    side-panel-content
+    class="pt-4"
+  >
+    <planning-poker-app-button
+      [label]="'Add an issue'"
+      [type]="'secondary'"
+      (click)="toggleForm()"
+      *ngIf="!formVisible"
+      class="p-3"
+    ></planning-poker-app-button>
+    <div
+      *ngIf="formVisible"
+      class="flex flex-col"
+    >
+      <input
+        type="text"
+        [(ngModel)]="issueTitle"
+        placeholder="Issue Title"
+        class="border"
+      />
+      <textarea
+        [(ngModel)]="issueDescription"
+        placeholder="Issue Description"
+        class="border"
+      ></textarea>
+      <div class="flex justify-between">
+        <planning-poker-app-button
+          [label]="'Cancel'"
+          [type]="'secondary'"
+          (click)="toggleForm()"
+        ></planning-poker-app-button>
+        <planning-poker-app-button
+          [label]="'Save'"
+          [type]="'primary'"
+          (click)="addIssue()"
+        ></planning-poker-app-button>
+      </div>
+    </div>
+    <div class="mt-3">
+      <div
+        *ngFor="let issue of issues"
+        class="p-3"
+      >
+        <planning-poker-app-issue-card
+          (statusChange)="changeStatus($event)"
+          [issue]="issue"
+        ></planning-poker-app-issue-card>
+      </div>
+    </div>
+  </div>
+</planning-poker-app-side-panel>

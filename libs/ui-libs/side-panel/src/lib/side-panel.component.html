@@ -1,0 +1,15 @@
+<div *ngIf="isVisible" class="fixed inset-0 z-50 flex justify-end backdrop-blur-xs">
+  <div
+    class="w-1/3 min-h-full shadow-lg transform transition-transform duration-5000 bg-white overflow-auto"
+    [class.translate-x-full]="!isVisible"
+    [class.translate-x-0]="isVisible"
+  >
+    <div class="p-4 border-b">
+      <ng-content select="[side-panel-header]"></ng-content>
+      <!-- <button (click)="togglePanel()" class="hover:text-red-500">&times;</button> -->
+    </div>
+    <div>
+      <ng-content select="[side-panel-content]"></ng-content>
+    </div>
+  </div>
+</div>

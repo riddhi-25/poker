@@ -1,0 +1,21 @@
+<div class="h-screen flex items-center justify-center w-full" *ngIf="showForm">
+    <planning-poker-app-board-form class="w-full" (toggleView)="toggleFormView($event)" [showForm]="showForm"
+        (formValues)="getFormValues($event)"></planning-poker-app-board-form>
+</div>
+
+<planning-poker-app-home-header *ngIf="!showForm" (clickSort)=sortByDate() ></planning-poker-app-home-header>
+
+<div class="flex flex-wrap w-full gap-4 bg-slate-100 p-2" *ngIf="!showForm">
+    <div class="w-[calc(25%-16px)] h-96">
+        <div class="flex flex-col justify-center items-center h-96 p-2 bg-indigo-800 text-white border rounded-md cursor-pointer"
+        (click)="goToHomeBoardDetails()">
+        <div><button><mat-icon [class.material-icons-outlined]="!boardActive"
+            [class.material-icons]="boardActive">add_circle</mat-icon></button></div>
+            <div>New Board</div>
+        </div>
+    </div>
+    
+        <planning-poker-app-board-tile *ngFor="let data of getAllSessions | keyvalue"(click)="navigateToSession(data.key)" class="h-96 w-[calc(25%-16px)] " [title]="data.value.name" [description]="data.value.description"
+            [createdOn]="data.value.lastUpdatedOn" [sessionId]="data.key"></planning-poker-app-board-tile>
+</div>
+

@@ -1,0 +1,11 @@
+<div
+  [ngClass]="{
+    'voting-card': state === voteState.VOTING,
+    voted: state === voteState.VOTED,
+    revealed: state === voteState.REVEALED,
+    hide: state === voteState.HIDE
+  }"
+  (click)="sendState(inputNum, state)"
+>
+  <span> {{ inputNum }} </span>
+</div>

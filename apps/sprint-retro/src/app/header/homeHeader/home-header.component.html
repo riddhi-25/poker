@@ -1,0 +1,22 @@
+<div class=" flex bg-slate-100 items-center justify-between">
+    <div class="flex p-2 gap-2">
+        <div class="cursor-pointer text-xs">All Boards</div>
+        <div class="cursor-pointer text-xs">Starred Boards</div>
+        <div class="cursor-pointer text-xs">Public Boards</div>
+    </div>
+    <div class="flex items-center justify-evenly gap-4 p-2">
+        <div class="relative cursor-pointer" (mouseenter)="onMouseEnter('Search')" (mouseleave)="onMouseLeave()">
+            <mat-icon class="p-1 hover:text-indigo-900 text-base">search</mat-icon>
+            <div *ngIf="hoverItem === 'Search'"
+                class="absolute left-1/2 transform -translate-x-1/2 mt-2 bg-indigo-900 text-white p-1 rounded-md shadow-lg">
+                Search</div>
+        </div>
+
+        <div class="relative cursor-pointer border p-1 rounded-md text-xs" (mouseenter)="onMouseEnter('Active:'+user.displayName)" (mouseleave)="onMouseLeave()"><span>Active:{{user.displayName}}</span>
+            <div *ngIf="hoverItem===('Active:'+user.displayName)" class=" absolute  top-10 bg-indigo-900 text-white p-1 rounded-md right-1  w-max ">{{hoverItem}} </div>
+        </div>
+        <div class=" relative cursor-pointer border p-1 rounded-md text-xs" (click)="sortClick()"  (mouseenter)="onMouseEnter('Sort By Modified Date')" (mouseleave)="onMouseLeave()"><span>Sort by Modified Date</span>
+            <div *ngIf="hoverItem==='Sort By Modified Date'" class=" absolute  top-10 bg-indigo-900 text-white p-1 rounded-md right-1  w-max " >{{hoverItem}}</div>
+        </div>
+    </div>
+</div>

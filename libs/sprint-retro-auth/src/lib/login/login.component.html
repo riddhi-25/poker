@@ -1,0 +1,9 @@
+<div class="flex items-center w-full h-screen justify-center bg-slate-400">
+    <form class="flex flex-col bg-slate-200 rounded-xl p-2 m-left-108 mt-marginTop" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label class="text-slate-700" for="username">Email</label>
+        <input class="outline-none p-1 rounded-xl bg-slate-100" id="username" type="email" formControlName="username">
+        <label class="text-slate-700" for="password">Password</label>
+        <input class="outline-none p-1 rounded-xl mb-4 bg-slate-100" type="password" id="password" formControlName="password">
+        <button class=" bg-slate-500 rounded-xl text-slate-200">Login</button>
+    </form>
+</div>

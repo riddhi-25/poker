@@ -1,0 +1,44 @@
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    height: 250px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    border: 2px solid #ccc;
+    
+  }
+  
+  .tile.new-board {
+    background-color: #3f8dda;
+    color: white;
+    border: none;
+  }
+  
+  .plus-icon {
+    align-content: center;
+    font-size: 48px;
+    margin-bottom: 10px;
+    cursor:pointer;
+  }
+  
+  .tile-text {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .tile-content {
+    text-align: left;
+  }
+  
+  
+  
+  
+  
+  

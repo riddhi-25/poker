@@ -1,0 +1,61 @@
+<div
+  class="flex items-center mb-2 cursor-pointer"
+  (click)="toggleControlPanel()"
+>
+  <div
+    class="rounded-full h-16 w-16 bg-blue-light flex items-center justify-center"
+  >
+    <strong>{{ seconds }}</strong>
+  </div>
+</div>
+<div
+  *ngIf="showControlPanel"
+  class="mt-2 w-48 p-4 rounded-lg shadow-lg z-10 bg-white"
+>
+  <div class="flex flex-col space-y-2">
+    <button
+      class="flex items-center"
+      *ngIf="!running"
+      (click)="start()"
+    >
+      <p class="mr-2">▶️</p>
+      Start
+    </button>
+    <button
+      class="flex items-center"
+      *ngIf="running"
+      (click)="pause()"
+    >
+      <p class="mr-2">⏸️</p>
+      Pause
+    </button>
+    <button
+      class="flex items-center"
+      (click)="increase()"
+    >
+      <p class="mr-2">➕</p>
+      Add 1 min.
+    </button>
+    <button
+      class="flex items-center"
+      (click)="decrease()"
+    >
+      <p class="mr-2">➖</p>
+      Decrease 1 min.
+    </button>
+    <button
+      class="flex items-center"
+      (click)="restart()"
+    >
+      <p class="mr-2">🔄</p>
+      Restart
+    </button>
+    <button
+      class="flex items-center"
+      (click)="cancel()"
+    >
+      <p class="mr-2">❌</p>
+      Cancel
+    </button>
+  </div>
+</div>

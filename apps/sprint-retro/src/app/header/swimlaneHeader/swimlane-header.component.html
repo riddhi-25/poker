@@ -1,0 +1,116 @@
+<div class="flex items-center justify-between p-3">
+  <div
+    class="relative cursor-pointer"
+    (mouseenter)="onMouseEnter(title)"
+    (mouseleave)="onMouseLeave()"
+  >
+    <div>{{ title }}</div>
+    <div
+      *ngIf="hoverItem ? hoverItem === title : false"
+      class="absolute flex flex-col bg-indigo-900 text-white p-1 w-max rounded-md items-center"
+    >
+      <span class="p-2 border-b">{{ title }}</span>
+      <span class="p-2">{{ description }}</span>
+    </div>
+  </div>
+  <div class="flex justify-evenly gap-4">
+    <div
+      class="relative cursor-pointer"
+      (mouseenter)="onMouseEnter('Search Board')"
+      (mouseleave)="onMouseLeave()"
+    >
+      <mat-icon class="hover:text-indigo-900">search</mat-icon>
+      <div
+        *ngIf="hoverItem === 'Search Board'"
+        class="absolute bg-indigo-900 text-white p-1 w-max right-4 rounded-md"
+      >
+        Search Board
+      </div>
+    </div>
+    <div
+      class="relative cursor-pointer"
+      (mouseenter)="
+        onMouseEnter(
+          'Filter by user: Select a user to precisely narrow down the board content'
+        )
+      "
+      (mouseleave)="onMouseLeave()"
+    >
+      <mat-icon class="hover:text-indigo-900">tune</mat-icon>
+      <div
+        *ngIf="
+          hoverItem ===
+          'Filter by user: Select a user to precisely narrow down the board content'
+        "
+        class="absolute bg-indigo-900 text-white p-1 w-max flex flex-col right-4 rounded-md"
+      >
+        <span>Filter by user: Select a user to precisely</span>
+        <span>narrow down the board content</span>
+      </div>
+    </div>
+    <div
+      (click)="toggleFormView()"
+      class="relative cursor-pointer"
+      (mouseenter)="
+        onMouseEnter(
+          'Easily share your board with other or export it in a variety of formats'
+        )
+      "
+      (mouseleave)="onMouseLeave()"
+    >
+      <mat-icon class="hover:text-indigo-900">share</mat-icon>
+      <div
+        *ngIf="
+          hoverItem ===
+          'Easily share your board with other or export it in a variety of formats'
+        "
+        class="absolute bg-indigo-900 text-white p-1 w-max flex flex-col right-4 rounded-md"
+      >
+        <span>Easily share your board with other or export</span>
+        <span>it in a variety of formats</span>
+      </div>
+    </div>
+    <div
+      class="relative cursor-pointer"
+      (click)="showParticipantsList()"
+      (mouseenter)="
+        onMouseEnter(
+          'Team Members: Access the list of current board members or add new ones.'
+        )
+      "
+      (mouseleave)="onMouseLeave()"
+    >
+      <mat-icon class="hover:text-indigo-900"
+        ><img
+          [src]="user.avatarUrls['48x48']"
+          alt=""
+      /></mat-icon>
+      <div
+        *ngIf="showParticipant"
+        class="absolute right-2 bg-indigo-900 p-2 text-white w-max rounded-md z-10"
+      >
+        <div *ngFor="let session of getAllSessions | keyvalue">
+          <div *ngIf="session.key === sessionId">
+            <div
+              *ngFor="let participant of session.value.participants | keyvalue"
+            >
+              <div>
+                {{ participant.value.name }} - {{ participant.value.role }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="
+          hoverItem ===
+          'Team Members: Access the list of current board members or add new ones.'
+        "
+        class="absolute bg-indigo-900 text-white p-1 w-max flex flex-col right-4 rounded-md"
+      >
+        <span>Team Members: Access the list of</span>
+        <span>current board members or add new ones.</span>
+      </div>
+    </div>
+  </div>
+</div>

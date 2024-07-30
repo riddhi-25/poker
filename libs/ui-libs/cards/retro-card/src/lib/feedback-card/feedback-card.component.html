@@ -1,0 +1,37 @@
+<div class="flex flex-col mb-2 bg-white rounded-xl cursor-grab" [ngStyle]="{'background-color': colorTaker}">
+    <div class="p-4 border-b border-slate-300">
+        <div class="text-sm">{{title}}</div>
+    </div>
+    <div class="flex justify-between items-center">
+        <div class="flex items-center gap-2 p-4">
+            <div class="p-2">
+                <span>{{author}}</span>
+            </div>
+            <div class="flex items-center cursor-pointer">
+                <button class="mt-2" (click)="toggleComment()">
+                    <mat-icon [class.material-icons-outlined]="!chatActive" [class.material-icons]="chatActive"
+                        [ngClass]="{'text-blue-200': !chatActive, 'text-blue-400': chatActive}">chat_bubble</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="flex items-center gap-2 p-1">
+            <div class="flex items-center gap-3 p-4 cursor-pointer">
+                <span class="flex gap-1">
+                    <button (click)="likeClick()">
+                        <mat-icon [class.material-icons-outlined]="!likeActive" [class.material-icons]="likeActive"
+                            [ngClass]="{'text-blue-400': !likeActive, 'text-blue-500': likeActive}">thumb_up</mat-icon>
+                    </button>
+                    <span *ngIf="likeCount !== 0">{{likeCount}}</span>
+                </span>
+                <span class="flex gap-1">
+                    <button (click)="dislikeClick()">
+                        <mat-icon [class.material-icons-outlined]="!dislikeActive"
+                            [class.material-icons]="dislikeActive"
+                            [ngClass]="{'text-blue-400': !dislikeActive, 'text-blue-500': dislikeActive}">thumb_down</mat-icon>
+                    </button>
+                    <span *ngIf="dislikeCount !== 0">{{dislikeCount}}</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

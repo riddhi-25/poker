@@ -1,0 +1,31 @@
+<form
+  class="flex flex-col max-w-lg mx-auto mt-20"
+  [formGroup]="sessionForm"
+>
+  <h2 class="text-center font-bold text-4xl text-blue-dark">Create session!</h2>
+  <input
+    placeholder="session's name"
+    type="text"
+    formControlName="sessionName"
+    class="p-3 m-5 rounded ring-2 text-zinc-500 ring-zinc-200 hover:ring-zinc-400 focus:outline-none focus:ring-blue-light placeholder:text-zinc-400"
+  />
+
+  <input
+    placeholder="session's description"
+    type="text"
+    formControlName="sessionDescription"
+    class="p-3 m-5 rounded ring-2 text-zinc-500 ring-zinc-200 hover:ring-zinc-400 focus:outline-none focus:ring-blue-light placeholder:text-zinc-400"
+  />
+
+  <div class="p-3 m-5 rounded ring-2 text-zinc-500 ring-zinc-200">
+    voting system: Fibonacci(1,2,3,5,8,13)
+  </div>
+
+  <planning-poker-app-button
+    [label]="'Create session'"
+    [type]="'primary'"
+    [display]="'block'"
+    class="m-5"
+    (click)="newSession($event)"
+  ></planning-poker-app-button>
+</form>

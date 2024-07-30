@@ -1,0 +1,9 @@
+<div class="mb-5 flex flex-row">
+  <planning-poker-app-vote-card
+    *ngFor="let num of fibonacciList"
+    [inputNum]="num"
+    [state]="state.get(num)??''"
+    class="pr-10"
+    (stateChanged)="changeState($event)"
+  ></planning-poker-app-vote-card>
+</div>

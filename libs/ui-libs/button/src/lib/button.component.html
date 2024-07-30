@@ -1,0 +1,12 @@
+<button
+  class="px-2"
+  [ngClass]="{
+    'primary': type === buttonType.PRIMARY,
+    'secondary': type === buttonType.SECONDARY,
+    'display-block': display === displayType.BLOCK,
+    'display-inline': display === displayType.INLINE,
+  }"
+>
+  <!-- <mat-icon *ngIf="icon">{{icon}}</mat-icon> -->
+  {{ label }}
+</button>

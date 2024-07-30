@@ -1,0 +1,26 @@
+<header class="flex justify-between items-center p-2 bg-white sticky inset-0 z-50">
+  <div class="flex items-center">
+    <button
+      class="logo"
+      (click)="routeToHome()"
+    >
+      <img
+        src="https://media.licdn.com/dms/image/D4E0BAQHphLyxAwdsvQ/company-logo_200_200/0/1690555388822/planning_poker_online_logo?e=2147483647&v=beta&t=6TxvhkTopsbtcA47EzcDGz6rBMCK7eieMqRSUWkrmtY"
+        alt="App Logo"
+        class="h-16 w-16 ml-5"
+      />
+    </button>
+    <button class="ml-8" (click)="routeToSessionsHistory()">Sessions History</button>
+  </div>
+  <div class="flex items-center">
+    <span class="mr-8 font-semibold">{{ currentUser?.displayName }}</span>
+    <planning-poker-app-button
+      [label]="'logout'"
+      [type]="'primary'"
+      [display]="'inline'"
+      (click)="logout()"
+      class="mr-5"
+    ></planning-poker-app-button>
+   
+  </div>
+</header>

@@ -1,0 +1,26 @@
+.voting-card {
+  @apply text-lg rounded-sm text-blue-500 ring-1 ring-blue-500 w-10 hover:-translate-y-1 py-5 hover:bg-blue-100 text-center px-1;
+  animation: flip 0.2s ;
+}
+
+.voted {
+  @apply text-lg py-5 px-1 text-center rounded-sm bg-blue-500 text-white w-10 -translate-y-1.5;
+}
+
+.revealed {
+  @apply bg-blue-500 w-10 py-5 text-transparent rounded-sm;
+  
+}
+
+.hide {
+  @apply text-transparent bg-zinc-300 w-10 py-5 px-1 text-center rounded-sm;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform:  rotateY(180deg);
+  }
+}

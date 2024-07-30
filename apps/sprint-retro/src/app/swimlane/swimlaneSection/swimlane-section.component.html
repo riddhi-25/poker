@@ -1,0 +1,19 @@
+<div class="w-full bg-slate-100">
+    <planning-poker-app-swimlane-header *ngIf="sessionId && allRetroSession[sessionId]"
+        [title]="allRetroSession[sessionId].name" [description]="allRetroSession[sessionId].description">
+    </planning-poker-app-swimlane-header>
+    <div class="flex grow-1 gap-2 ">
+        <div class="w-4/12">
+
+            <planning-poker-app-swimlane [type]="good"></planning-poker-app-swimlane>
+        </div>
+        <div class="w-4/12">
+
+            <planning-poker-app-swimlane [type]="bad" ></planning-poker-app-swimlane>
+        </div>
+        <div class="w-4/12">
+
+            <planning-poker-app-swimlane [type]="action" ></planning-poker-app-swimlane>
+        </div>
+    </div>
+</div>

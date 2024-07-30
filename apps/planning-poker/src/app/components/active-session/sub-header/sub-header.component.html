@@ -1,0 +1,32 @@
+<div class="bg-blue-50 flex justify-between">
+  <div class="my-auto ml-3 font-bold">Voting: {{issueTitle}}</div>
+<div class="m-1">
+  <planning-poker-app-button
+      [label]="'Toggle Panel'"
+      [type]="'primary'"
+      class="m-1"
+      (click)="togglePanel()"
+    ></planning-poker-app-button>
+
+<planning-poker-app-button
+    [label]="'Users'"
+    [type]="'secondary'"
+    [display]="'inline'"
+    class="m-1 mr-5 relative "
+    (click)="getUsers()"
+    (mouseover)="showList = true"
+    (mouseleave)="showList = false"
+  ></planning-poker-app-button>
+  <div *ngIf="showList" class="mr-5 mt-1 absolute bg-white p-2 text-blue-900 font-semibold rounded shadow-md ">
+    <div *ngFor="let participant of userList" class="py-2 px-2  ">
+      {{ participant.name }}
+    </div>
+  </div>
+</div>
+
+</div>
+
+<planning-poker-app-sliding-panel [isVisible]="panelVisible"
+(visibleStatus)="togglePanel()"
+(activeIssueIdChanged)="onActiveIssueIdChanged($event)"
+></planning-poker-app-sliding-panel>

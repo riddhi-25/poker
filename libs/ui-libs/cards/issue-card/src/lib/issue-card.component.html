@@ -1,0 +1,48 @@
+<div
+  class="p-4 border rounded-lg shadow-sm"
+  [ngClass]="{
+    'bg-blue-light': issue.status === 'voting',
+    'bg-gray': issue.status === 'not_started',
+    'bg-green-100': issue.status === 'revealed'
+  }"
+>
+  <div class="flex justify-between items-center">
+    <span class="truncate font-bold">{{ issue.id }}</span>
+    <button class="hover:text-red-500">&times;</button>
+  </div>
+
+  <p class="text-sm">{{ issue.title }}</p>
+  <div class="flex justify-between items-center">
+    <span>{{ issue.description }}</span>
+  </div>
+
+  <div class="flex justify-between pt-5">
+    <planning-poker-app-button [label]="'Voting now'" *ngIf="issue.status==='voting'" (click)="changeStatus(issue.id)" class="mr-2"></planning-poker-app-button>
+    <planning-poker-app-button [label]="'Vote this issue'" *ngIf="issue.status==='not_started'" (click)="changeStatus(issue.id)" class="mr-2"></planning-poker-app-button>
+    <div>
+      
+      <button
+        class="bg-white p-2 rounded border hover:bg-gray-300"
+        *ngIf="issue.status!=='revealed'"
+        (click)="toggleDropdown()"
+      >
+      {{ finalVote !== null ? finalVote : 'Vote' }}
+      </button>
+      <div
+        *ngIf="showDropdown"
+        class="absolute right-0 border rounded-lg shadow-lg bg-white"
+      >
+        <ul class="list-none">
+          <li
+            *ngFor="let option of fibbonacciNumbers"
+            class="p-2 cursor-pointer"
+            (click)="selectVote(option)"
+          >
+            {{ option }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+</div>
